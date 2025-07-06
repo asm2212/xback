@@ -3,9 +3,11 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import userRoutes from './routes/user.routes';
 
 // Configuration
 dotenv.config();
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -19,6 +21,9 @@ app.use(express.json());
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'OK' });
 });
+
+//users stub
+app.use('/users', userRoutes);
 
 // Error Handling
 app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
