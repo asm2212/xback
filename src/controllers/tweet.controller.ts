@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import tweetService from '../services/tweet.service';
 
 class TweetController {
-  async createTweet(req: Request, res: Response) {
+  async createTweet(req: Request, res: Response):Promise<void> {
     try {
       const tweet = await tweetService.createTweet(req.body);
       res.status(201).json(tweet);

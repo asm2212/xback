@@ -10,7 +10,8 @@ class UserService{
       return await prisma.user.create({
         data: {
             email: userData.email,
-            name: userData.name
+            name: userData.name,
+            password: userData.password,
         }
       });
     }

@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import userRoutes from './routes/user.routes';
 import tweetRoutes from './routes/tweet.routes';
+import authRoutes from './routes/auth.routes';
 
 // Configuration
 dotenv.config();
@@ -26,6 +27,7 @@ app.get('/health', (req, res) => {
 //users stub
 app.use('/users', userRoutes);
 app.use('/tweets', tweetRoutes);
+app.use('/auth', authRoutes);
 
 // Error Handling
 app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
